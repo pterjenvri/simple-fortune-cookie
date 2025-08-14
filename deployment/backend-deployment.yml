@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    run: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: backend
+  template:
+    metadata:
+      labels:
+        run: backend
+    spec:
+      containers:
+        - image: ghcr.io/pterjenvri/cookie-backend:latest
+          name: cookie-backend
+
