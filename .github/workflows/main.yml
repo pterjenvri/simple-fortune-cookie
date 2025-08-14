@@ -6,6 +6,10 @@ on:
   pull_request:
      branches:
       - main
+env:
+  docker_username: nima-moayedzadeh
+  docker_password: ${{ secrets.GITHUB_TOKEN }}
+  GIT_COMMIT: ${{ github.sha }}
 jobs:
     Build:
       runs-on: ubuntu-latest
