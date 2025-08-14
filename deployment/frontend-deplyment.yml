@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    run: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: frontend
+  template:
+    metadata:
+      labels:
+        run: frontend
+    spec:
+      containers:
+        - image: ghcr.io/pterjenvri/cookie-frontend:latest
+          name: cookie-frontend
+          env:
+            - name: BACKEND_DNS
+              value: backend
+            - name: BACKEND_PORT
+              value: '9000'
+
