@@ -17,4 +17,7 @@ spec:
       containers:
         - image: ghcr.io/pterjenvri/cookie-backend:latest
           name: cookie-backend
+          env:
+            - name: REDIS_DNS
+              value: redis
 
