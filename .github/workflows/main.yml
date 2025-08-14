@@ -63,12 +63,11 @@ jobs:
         steps:
             - name: Clone down repository
               uses: actions/checkout@v5
-            - name: change directory  
-              run: cd deployment
-            - name: copy-config
-              run: echo "${{ secrets.KUBECONFIG }}" > kubeconfig
-            - name: deploy-config 
-              run: kubectl --kubeconfig kubeconfig apply -f .
+            - name: Deploy app
+              run: |
+                cd deployment
+                echo "${{ secrets.KUBECONFIG }}" > kubeconfig
+                kubectl --kubeconfig kubeconfig apply -f .
           
       
 
