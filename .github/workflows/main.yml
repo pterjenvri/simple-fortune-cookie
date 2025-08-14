@@ -23,7 +23,7 @@ jobs:
             go build -buildvcs=false
         - name: Build frontend
           run: |
-            cd ../frontend
+            cd frontend
             go build -buildvcs=false
         - name: Run test
           run: go test
