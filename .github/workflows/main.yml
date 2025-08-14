@@ -1,0 +1,27 @@
+name: main workflow
+on: push
+  - branches:
+    -main
+  - pull_request:
+    -main
+jobs:
+    Build:
+    runs-on: ubuntu-latest
+    container: 1.25.0-bookworm
+    steps:
+      - name: Clone down repository
+      uses: action/checkout@v5
+      - name: Build backend
+      run: |
+        cd backend
+        go build
+      - name: Build frontend
+      run: |
+        cd ../frontend
+        go build
+      - name: Run test
+      run: go test
+        
+    
+
+    
