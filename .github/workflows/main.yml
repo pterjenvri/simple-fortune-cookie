@@ -13,7 +13,7 @@ env:
 jobs:
     Build:
       runs-on: ubuntu-latest
-      container: 1.25.0-bookworm
+      container: golang:1.25.0-bookworm
       steps:
         - name: Clone down repository
           uses: actions/checkout@v5
