@@ -1,0 +1,15 @@
+services:
+  backend:
+    build: ./backend
+    container_name: cookie-backend
+    ports:
+      - "9000:9000"
+
+  frontend:
+    build: ./frontend
+    container_name: cookie-frontend
+    restart: always
+    environment:
+      - BACKEND_DNS=cookie-backend
+    ports:
+      - "8080:8080"
