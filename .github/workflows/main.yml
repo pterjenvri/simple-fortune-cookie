@@ -42,7 +42,7 @@ jobs:
         - name: wait
           run:  sleep 5
         - name: run test
-          run:  test.sh http://localhost:8080
+          run:  cd test && test.sh http://localhost:8080
         - name: stop container
           if:   always()
           run:  docker compose down
